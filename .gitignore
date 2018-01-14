@@ -1,5 +1,6 @@
 # added
 package-lock.json
+replyRules.json
 config.json
 dist/
 public/
