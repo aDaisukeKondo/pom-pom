@@ -1,4 +1,6 @@
 # added
+package-lock.json
+config.json
 dist/
 public/
 .vscode/
