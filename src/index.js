@@ -8,12 +8,14 @@ const config = require('../config.json');
 const client = new line.Client(config);
 
 const getReplyMessage = (aText) => {
-  return replyRules.find((aRule) => {
+  const rule = replyRules.find((aRule) => {
     const ret = aRule.inputs.find((aInput) => {
       return aText === aInput;
     });
     return ret ? true : false;
-  }).message;
+  });
+
+  return rule ? rule.message : null;
 };
 
 const handleEvent = (aEvent) => {
