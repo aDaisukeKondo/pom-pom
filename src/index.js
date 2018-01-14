@@ -1,8 +1,20 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
+
+const replyRules = require('../replyRules.json');
 const config = require('../config.json');
 
+
 const client = new line.Client(config);
+
+const getReplyMessage = (aText) => {
+  return replyRules.find((aRule) => {
+    const ret = aRule.inputs.find((aInput) => {
+      return aText === aInput;
+    });
+    return ret ? true : false;
+  }).message;
+};
 
 const handleEvent = (aEvent) => {
   console.log('handleEvent called');
@@ -11,10 +23,12 @@ const handleEvent = (aEvent) => {
     return Promise.resolve(null);
   }
 
-  return client.replyMessage(aEvent.replyToken, {
-    type: 'text',
-    text: aEvent.message.text
-  });
+  const message = getReplyMessage(aEvent.message.text);
+  if (!message) {
+    return Promise.resolve(null);
+  }
+
+  return client.replyMessage(aEvent.replyToken, message);
 };
 
 const app = express();

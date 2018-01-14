@@ -1,0 +1,35 @@
+[
+  {
+    "inputs": [
+      "おは",
+      "おはよう",
+      "おっは"
+    ],
+    "message": {
+      "type": "text",
+      "text": "おっはよー"
+    }
+  },
+  {
+    "inputs": [
+      "ぬめぬめ",
+      "ヌメヌメ"
+    ],
+    "message": {
+      "type": "image",
+      "originalContentUrl": "https://www.sanrio.co.jp/special/pompompurin/20th/purin_ani_ending.gif",
+      "previewImageUrl": "https://www.sanrio.co.jp/special/pompompurin/20th/purin_ani_ending.gif"
+    }
+  },
+  {
+    "inputs": [
+      "すたんぷ",
+      "スタンプ"
+    ],
+    "message": {
+      "type": "sticker",
+      "packageId": "3",
+      "stickerId": "5"
+    }
+  }
+]
