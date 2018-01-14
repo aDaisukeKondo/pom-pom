@@ -1,3 +1,9 @@
+# added
+dist/
+public/
+.vscode/
+
+
 # Logs
 logs
 *.log
