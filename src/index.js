@@ -19,8 +19,6 @@ const getReplyMessage = (aText) => {
 };
 
 const handleEvent = (aEvent) => {
-  console.log('handleEvent called');
-
   if (aEvent.type !== 'message' || aEvent.message.type !== 'text') {
     return Promise.resolve(null);
   }
@@ -36,8 +34,6 @@ const handleEvent = (aEvent) => {
 const app = express();
 
 app.post('/callback', line.middleware(config), (aReq, aRes) => {
-  console.log('callback called');
-
   Promise
     .all(aReq.body.events.map(handleEvent))
     .then(result => aRes.json(result));
